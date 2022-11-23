@@ -8,4 +8,14 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ModalBody = styled.div`
+  background: #fff;
+  width: 480px;
+  border-radius: 8px;
+  padding: 32px;
 `;

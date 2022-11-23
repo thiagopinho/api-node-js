@@ -1,4 +1,4 @@
-import { Overlay } from "./styles";
+import { Overlay, ModalBody } from "./styles";
 
 interface OrderModalProps {
   visible: boolean;
@@ -10,7 +10,7 @@ export function OrderModal({ visible }: OrderModalProps) {
   }
   return (
     <Overlay>
-      <h1>Oi</h1>
+      <ModalBody>Oi</ModalBody>
     </Overlay>
   );
 }
