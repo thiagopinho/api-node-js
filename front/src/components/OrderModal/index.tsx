@@ -69,3 +69,8 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
             <span>Total</span>
             <strong>{formatCurrency(total)}</strong>
           </div>
+        </OrderDetails>
+      </ModalBody>
+    </Overlay>
+  )
+}
