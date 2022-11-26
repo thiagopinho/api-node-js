@@ -1,4 +1,4 @@
-import { Overlay, ModalBody, OrderDetails } from "./styles";
+import { Overlay, ModalBody, OrderDetails, Actions } from "./styles";
 
 import closeIcon from "../../assets/images/close-icon.svg";
 import { Order } from "../../types/Order";
@@ -7,9 +7,10 @@ import { formatCurrency } from "../../utils/formatCurrency";
 interface OrderModalProps {
   visible: boolean;
   order: Order | null;
+  onClose: () => void;
 }
 
-export function OrderModal({ visible, order }: OrderModalProps) {
+export function OrderModal({ visible, order, onClose }: OrderModalProps) {
   if (!visible || !order) {
     return null;
   }
@@ -23,7 +24,7 @@ export function OrderModal({ visible, order }: OrderModalProps) {
       <ModalBody>
         <header>
           <strong>Mesa {order.table}</strong>
-          <button type="button">
+          <button type="button" onClick={onClose}>
             <img src={closeIcon} alt="Ícone de fechar"></img>
           </button>
         </header>
@@ -68,9 +69,3 @@ export function OrderModal({ visible, order }: OrderModalProps) {
             <span>Total</span>
             <strong>{formatCurrency(total)}</strong>
           </div>
-
-        </OrderDetails>
-      </ModalBody>
-    </Overlay>
-  );
-}
