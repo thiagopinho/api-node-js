@@ -3,6 +3,7 @@ import { Overlay, ModalBody, OrderDetails, Actions } from "./styles";
 import closeIcon from "../../assets/images/close-icon.svg";
 import { Order } from "../../types/Order";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { KeyboardEvent, useEffect } from "react";
 
 interface OrderModalProps {
   visible: boolean;
@@ -11,6 +12,24 @@ interface OrderModalProps {
 }
 
 export function OrderModal({ visible, order, onClose }: OrderModalProps) {
+
+  useEffect(() => {
+    function handleKeyDown(event: globalThis.KeyboardEvent) {
+
+      if (event.key === "Escape") {
+        onClose();
+      }
+
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+
+  }, [onClose]);
+
   if (!visible || !order) {
     return null;
   }
@@ -69,6 +88,15 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
             <span>Total</span>
             <strong>{formatCurrency(total)}</strong>
           </div>
+          <Actions>
+            <button type="button" className="primary">
+              <span>👨‍🍳</span>
+              <strong>Iniciar Produção</strong>
+            </button>
+            <button type="button" className="secondary">
+              <span>Cancelar</span>
+            </button>
+          </Actions>
         </OrderDetails>
       </ModalBody>
     </Overlay>
