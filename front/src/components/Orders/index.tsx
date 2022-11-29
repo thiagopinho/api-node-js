@@ -12,7 +12,7 @@ const orders: Order[] = [
       {
         "product": {
           "name": "Pizza",
-          "image": "1669496839836-1443495600000-Pizza-de-mucarela-caseira.jpg",
+          "image": "1669554973143-coca.jpg",
           "price": 30
         },
         "quantity": 4,
@@ -20,7 +20,7 @@ const orders: Order[] = [
       }, {
         "product": {
           "name": "Coca Cola",
-          "image": "1669496945626-coca.jpg",
+          "image": "1669554973143-coca.jpg",
           "price": 7
         },
         "quantity": 3,
