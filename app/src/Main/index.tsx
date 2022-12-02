@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import { Categories } from "../components/Categories";
 import { Menu } from "../components/Menu";
 import { Button } from "../components/Button";
+import { TableModal } from "../components/TableModal";
 
 export function Main() {
   return (
@@ -25,6 +26,7 @@ export function Main() {
           </Button>
         </FooterContainer>
       </Footer>
+      <TableModal />
     </>
   );
 }
